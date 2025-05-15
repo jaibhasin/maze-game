@@ -8,6 +8,13 @@ maze = [[0 for _ in range(N)] for _ in range(N)]  # 0 = wall, 1 = path
 def is_valid(x, y):
     return 0 <= x < N and 0 <= y < N and maze[x][y] == 0
 
+# def is_valid(x, y):
+#     cx, cy = N // 2, N // 2
+#     radius = N // 2
+#     return (0 <= x < N and 0 <= y < N and 
+#             (x - cx)**2 + (y - cy)**2 <= radius**2 and maze[x][y] == 0)
+
+
 def build_maze(x, y):
     maze[x][y] = 1
 
@@ -43,7 +50,12 @@ def print_maze():
 
 
 def get_maze():
-    build_maze(0, 0)
-    maze[0][0] = 'S'
+    build_maze(0,0)
+    maze[0][0] = 'S'  # currently we changed starting position so 49,49 is not reachable 
     maze[49][49] = 'E'
     return maze
+
+# def check1():
+#     build_maze(0, 0)
+#     print_maze()
+# check1()
